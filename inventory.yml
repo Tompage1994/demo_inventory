@@ -1,0 +1,8 @@
+---
+aws_nodes:
+  hosts:
+    node1:
+      usage: app-server
+    node2:
+      usage: db
+...
