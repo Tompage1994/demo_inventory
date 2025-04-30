@@ -1,0 +1,25 @@
+---
+- name: Deploy inventories
+  hosts: localhost
+  vars:
+    controller_inventories:
+      - name: org_owned_source
+        organization: Default
+      - name: groups_source
+        organization: Default
+      - name: base Inventory
+        organization: Default
+      # - name: construct
+    controller_inventory_sources:
+      - name: org_owned_source
+        inventory: org_owned_source
+        source: scm
+        source_project: Inventory_Project
+        source_path: org_owned_source
+      - name: groups_source
+        inventory: groups_source
+        source: scm
+        source_project: Inventory_Project
+        source_path: groups_source
+  roles:
+    - infra.aap_configuration.dispatch
